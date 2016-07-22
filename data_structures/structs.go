@@ -2,12 +2,22 @@ package data_structures
 
 // Linked List Implementation
 
-type Node struct{}
+type Node struct{
+	val int
+	previous *Node
+}
 
+var start *Node
 func Add(elem int) {
-	return
+	start = &(Node{val:elem,previous:start})
 }
 
 func Search(elem int) *Node {
-	return nil
+	temp := start
+	for{
+		if temp==nil || temp.val==elem{
+			return temp
+		}
+		temp = temp.previous
+	}
 }
